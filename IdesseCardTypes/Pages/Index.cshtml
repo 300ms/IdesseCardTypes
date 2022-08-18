@@ -1,10 +1,28 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+	ViewData["Title"] = "Infini Card Type";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center w-1/4 md:w-1/3 sm:w-1/2 flex-col">
+	<div class="login-error w-full">
+		<turbo-frame id="login-error">
+		</turbo-frame>
+	</div>
+
+	<div class="login-form w-full flex-col justify-content-between">
+		<form method="post">
+			<div class="user-name-input">
+				<label for="user-name">UserName:</label>
+				<input type="text" asp-for="@Model.UserName" id="user-name" name="user-name" />
+			</div>
+
+			<div class="password-input">
+				<label for="password">Password:</label>
+				<input type="text" asp-for="@Model.Password" id="password" name="password" />
+			</div>
+
+			<button type="submit" data-turbo-frame="login-error">Login</button>
+		</form>
+	</div>
 </div>
