@@ -18,15 +18,16 @@ namespace IdesseCardTypes.Pages
 			_logger = logger;
 		}
 
-		public void OnPost(string name, string password)
+		public ActionResult OnPost()
 		{
-			if (String.IsNullOrEmpty(name))
+
+			if (string.IsNullOrEmpty(UserName))
 			{
-				FormFail();
+				return FormFail();
 			}
 			else
 			{
-				FormSuccess();
+				return FormSuccess();
 			}
 		}
 
