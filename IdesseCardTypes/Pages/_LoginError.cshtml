@@ -1,7 +1,28 @@
 ﻿@model IdesseCardTypes.Pages.IndexModel
 
-<turbo-frame id="login-error">
-	<div class="w-full bg-red-500 text-center w-full h-10 rounded-lg flex justify-center items-center m-5">
-		<span class="text-white h-fit">Please Enter a User Name!</span>
+<turbo-frame id="content-frame">
+	<div class="text-center border-solid border-2 border-grey rounded-lg p-8">
+		<div class="idesse-logo w-1/2 flex align-center m-auto">
+			<img src="~/dist/images/idesse_logo.svg" class="max-w-sm m-auto" />
+		</div>
+
+		<div class="login-form w-full flex-col justify-content-between">
+			<div class="w-full bg-red-500 text-center w-full h-10 rounded-lg flex justify-center items-center m-5">
+				<span class="text-white h-fit">Please Enter a User Name!</span>
+			</div>
+			<form method="post" id="login-form" onsubmit="event.preventDefault(); validateMyForm();">
+				<div class="user-name-input m-8">
+					<label for="user-name">UserName</label><br />
+					<input asp-for="@Model.UserName" id="user-name" />
+				</div>
+
+				<div class="password-input m-8">
+					<label for="password">Password</label><br />
+					<input asp-for="@Model.Password" id="password" />
+				</div>
+
+				<button type="submit">Login</button>
+			</form>
+		</div>
 	</div>
 </turbo-frame>

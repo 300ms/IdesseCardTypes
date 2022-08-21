@@ -4,26 +4,26 @@
 	ViewData["Title"] = "Infini Card Type";
 }
 
-<div class="text-center border-solid border-2 border-grey rounded-lg p-8">
-	<div class="idesse-logo w-1/2 flex align-center m-auto">
-		<img src="~/dist/images/idesse_logo.svg" class="max-w-sm m-auto" />
+<turbo-frame id="content-frame" data-turbo-action="advance">
+	<div class="text-center border-solid border-2 border-grey rounded-lg p-8">
+		<div class="idesse-logo w-1/2 flex items-center m-auto">
+			<img src="~/dist/images/idesse_logo.svg" class="max-w-sm m-auto" />
+		</div>
+
+		<div class="login-form w-full flex-col justify-content-between">
+			<form method="post" id="login-form">
+				<div class="user-name-input m-8">
+					<label for="user-name">UserName</label><br />
+					<input asp-for="@Model.UserName" id="user-name" />
+				</div>
+
+				<div class="password-input m-8">
+					<label for="password">Password</label><br />
+					<input asp-for="@Model.Password" id="password" />
+				</div>
+
+				<button type="submit" asp-page="/Menu">Login</button>
+			</form>
+		</div>
 	</div>
-	<turbo-frame id="login-error">
-	</turbo-frame>
-
-	<div class="login-form w-full flex-col justify-content-between">
-		<form method="post">
-			<div class="user-name-input m-8">
-				<label for="user-name">UserName</label><br />
-				<input asp-for="@Model.UserName" />
-			</div>
-
-			<div class="password-input m-8">
-				<label for="password">Password</label><br />
-				<input asp-for="@Model.Password" />
-			</div>
-
-			<button type="submit" data-turbo-frame="login-error">Login</button>
-		</form>
-	</div>
-</div>
+</turbo-frame>
