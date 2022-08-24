@@ -10,7 +10,7 @@
 			<div class="w-full bg-red-500 text-center w-full h-10 rounded-lg flex justify-center items-center m-5">
 				<span class="text-white h-fit">Please Enter a User Name!</span>
 			</div>
-			<form method="post" id="login-form" onsubmit="event.preventDefault(); validateMyForm();">
+			<form method="post" id="login-form">
 				<div class="user-name-input m-8">
 					<label for="user-name">UserName</label><br />
 					<input asp-for="@Model.UserName" id="user-name" />

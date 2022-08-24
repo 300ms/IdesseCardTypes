@@ -746,6 +746,10 @@ select {
   margin-right: 0.5rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -756,10 +760,6 @@ select {
 
 .hidden {
   display: none;
-}
-
-.h-64 {
-  height: 16rem;
 }
 
 .h-fit {
@@ -780,6 +780,10 @@ select {
 
 .h-10 {
   height: 2.5rem;
+}
+
+.h-64 {
+  height: 16rem;
 }
 
 .h-screen {

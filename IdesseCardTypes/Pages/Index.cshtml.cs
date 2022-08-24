@@ -38,7 +38,6 @@ namespace IdesseCardTypes.Pages
 
 		public PartialViewResult FormFail()
 		{
-			// return new RedirectToPageResult("LoginError", this);
 			return Partial("_LoginError", this);
 		}
 	}
