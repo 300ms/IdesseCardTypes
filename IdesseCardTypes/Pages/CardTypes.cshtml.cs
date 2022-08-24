@@ -53,7 +53,7 @@ public class CardTypesModel : PageModel
 
     public PartialViewResult OnGetAdd()
     {
-        var ct = new CardType(0, string.Empty, false, false, false);
+        CardType ct = new CardType(0, string.Empty, false, false, false);
         return Partial("_CardTypeAddEdit", ct);
     }
 
@@ -64,14 +64,14 @@ public class CardTypesModel : PageModel
         if (id == 0)
         {
             id = CardTypes.Instance.LastOrDefault().Id + 1;
-            var ct = new CardType(id, definition, isVisitable, isLocationRequired, isUserAccount);
+            CardType ct = new CardType(id, definition, isVisitable, isLocationRequired, isUserAccount);
             CardTypes.Instance.Add(ct);
             Response.ContentType = "text/vnd.turbo-stream.html";
             return Partial("_CardTypeAdd", ct);
         }
         else
         {
-            var ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
+            CardType ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
             ct.Definition = definition;
             ct.IsVisitable = isVisitable;
             ct.IsLocationRequired = isLocationRequired;
@@ -80,22 +80,31 @@ public class CardTypesModel : PageModel
             return Partial("_CardTypeEdit", ct);
         }
     }
-
+    
     public PartialViewResult OnGetEdit(int id, string definition, bool isVisitable, bool isLocationRequired, 
         bool isUserAccount)
     {
-        var ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
+        CardType ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
         return Partial("_CardTypeAddEdit", ct);
     }
 
     public RedirectToPageResult OnPostEdit(int id, string definition, bool isVisitable, bool isLocationRequired,
         bool isUserAccount)
     {
-        var ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
+        CardType ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
         ct.Definition = definition;
         ct.IsVisitable = isVisitable;
         ct.IsLocationRequired = isLocationRequired;
         ct.IsUserAccount = isUserAccount;
         return new RedirectToPageResult("CardTypes", this);
+    }
+
+    public PartialViewResult OnPostDelete(int id)
+    {
+        CardType ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
+        CardTypes.Instance.Remove(ct);
+        
+        Response.ContentType = "text/vnd.turbo-stream.html";
+        return Partial("_CardTypeDelete", ct);
     }
 }
