@@ -1,90 +1,101 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace IdesseCardTypes.Pages
+namespace IdesseCardTypes.Pages;
+
+public class CardType
 {
-	public class CardType
-	{
-		public int Id { get; set; }
-		public string Definition { get; set; }
-		public Boolean IsVisitable { get; set; }
-		public Boolean IsLocationRequired { get; set; }
-		public Boolean IsUserAccount { get; set; }
+    public CardType(int id, string def, bool isV, bool isL, bool isU)
+    {
+        Id = id;
+        Definition = def;
+        IsVisitable = isV;
+        IsLocationRequired = isL;
+        IsUserAccount = isU;
+    }
 
-		public CardType(int id, string def, bool isV, bool isL, bool isU)
-		{
-			Id = id;
-			Definition = def;
-			IsVisitable = isV;
-			IsLocationRequired = isL;
-			IsUserAccount = isU;
-		}
-	}
+    public int Id { get; set; }
+    public string Definition { get; set; }
+    public bool IsVisitable { get; set; }
+    public bool IsLocationRequired { get; set; }
+    public bool IsUserAccount { get; set; }
+}
 
-	public class CardTypes : List<CardType>
-	{
-		private CardTypes() { }
-		private static CardTypes _Instance = null;
-		public static CardTypes Instance
-		{
-			get
-			{
-				if (_Instance == null)
-				{
-					_Instance = new CardTypes();
+public class CardTypes : List<CardType>
+{
+    private static CardTypes _Instance;
 
-					for (int i = 0; i < 2; i++)
-					{
-						_Instance.Add(new CardType(i + 1, $"Taným {i + 1}", true, true, false));
-					}
-				}
-				return _Instance;
-			}
-		}
-	}
+    private CardTypes()
+    {
+    }
 
-	public class CardTypesModel : PageModel
-	{
-		[BindProperty]
-		public int id { get; set; }
-		[BindProperty]
-		public string definition { get; set; }
-		[BindProperty]
-		public bool isVisitable { get; set; }
-		[BindProperty]
-		public bool isLocationRequired { get; set; }
-		[BindProperty]
-		public bool isUserAccount { get; set; }
-		public void OnGet()
-		{
-		}
+    public static CardTypes Instance
+    {
+        get
+        {
+            if (_Instance == null)
+            {
+                _Instance = new CardTypes();
 
-		public PartialViewResult OnGetAdd()
-		{
-			return Partial("_CardTypeAdd", this);
-		}
+                for (var i = 0; i < 2; i++) _Instance.Add(new CardType(i + 1, $"Taným {i + 1}", true, true, false));
+            }
 
-		public RedirectToPageResult OnPostAdd(string definition, bool isVisitable, bool isLocationRequired, bool isUserAccount)
-		{
-			int idNew = CardTypes.Instance.LastOrDefault().Id + 1;
-			CardType ct = new CardType(idNew, definition, isVisitable, isLocationRequired, isUserAccount);
-			CardTypes.Instance.Add(ct);
-			return new RedirectToPageResult("CardTypes", this);
-		}
+            return _Instance;
+        }
+    }
+}
 
-		public PartialViewResult OnGetEdit()
-		{
-			return Partial("_CardTypeEdit", this);
-		}
+public class CardTypesModel : PageModel
+{
+    public void OnGet()
+    {
+    }
 
-		public RedirectToPageResult OnPostEdit(int id, string definition, bool isVisitable, bool isLocationRequired, bool isUserAccount)
-		{
-			CardType ct = CardTypes.Instance.Find(x => x.Id == id);
-			ct.Definition = definition;
-			ct.IsVisitable = isVisitable;
-			ct.IsLocationRequired = isLocationRequired;
-			ct.IsUserAccount = isUserAccount;
-			return new RedirectToPageResult("CardTypes", this);
-		}
-	}
+    public PartialViewResult OnGetAdd()
+    {
+        var ct = new CardType(0, string.Empty, false, false, false);
+        return Partial("_CardTypeAddEdit", ct);
+    }
+
+    public PartialViewResult OnPostAdd(int id, string definition, bool isVisitable, bool isLocationRequired,
+        bool isUserAccount)
+    {
+        Console.WriteLine(id);
+        if (id == 0)
+        {
+            id = CardTypes.Instance.LastOrDefault().Id + 1;
+            var ct = new CardType(id, definition, isVisitable, isLocationRequired, isUserAccount);
+            CardTypes.Instance.Add(ct);
+            Response.ContentType = "text/vnd.turbo-stream.html";
+            return Partial("_CardTypeAdd", ct);
+        }
+        else
+        {
+            var ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
+            ct.Definition = definition;
+            ct.IsVisitable = isVisitable;
+            ct.IsLocationRequired = isLocationRequired;
+            ct.IsUserAccount = isUserAccount;
+            Response.ContentType = "text/vnd.turbo-stream.html";
+            return Partial("_CardTypeEdit", ct);
+        }
+    }
+
+    public PartialViewResult OnGetEdit(int id, string definition, bool isVisitable, bool isLocationRequired, 
+        bool isUserAccount)
+    {
+        var ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
+        return Partial("_CardTypeAddEdit", ct);
+    }
+
+    public RedirectToPageResult OnPostEdit(int id, string definition, bool isVisitable, bool isLocationRequired,
+        bool isUserAccount)
+    {
+        var ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
+        ct.Definition = definition;
+        ct.IsVisitable = isVisitable;
+        ct.IsLocationRequired = isLocationRequired;
+        ct.IsUserAccount = isUserAccount;
+        return new RedirectToPageResult("CardTypes", this);
+    }
 }

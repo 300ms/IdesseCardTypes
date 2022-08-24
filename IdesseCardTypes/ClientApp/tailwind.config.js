@@ -1,10 +1,9 @@
 module.exports = {
-  content: ['../Pages/**/*.cshtml', '../Areas/**/*.cshtml'],
-  theme: {
-    extend: {
+    content: ['../Pages/**/*.cshtml', '../Areas/**/*.cshtml'],
+    theme: {
+        extend: {},
     },
-  },
-  plugins: [
-    require('@tailwindcss/forms')
-  ]
+    plugins: [
+        require('@tailwindcss/forms')
+    ]
 }

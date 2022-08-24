@@ -1,0 +1,38 @@
+﻿@model CardType
+
+<turbo-frame id="CardType_@Model.Id">
+    <form method="post" class="new-card-type w-full">
+        <div class="w-3/4">
+            <div class="w-full">
+                <label class="form-check-label w-3/4" for="Definition">Tanım</label>
+                <input type="text" asp-for="@Model.Definition" id="Definition" class="w-1/4"/>
+            </div>
+            <div class="w-full">
+                <label class="form-check-label w-3/4" for="IsVisitable">Ziyaret Edilebilir</label>
+                <input type="checkbox" asp-for="@Model.IsVisitable" id="IsVisitable" class="w-1/4"/>
+            </div>
+            <div class="w-full">
+                <label class="form-check-label w-3/4" for="IsLocationRequired">Lokasyon Gerekli</label>
+                <input type="checkbox" asp-for="@Model.IsLocationRequired" id="IsLocationRequired" class="w-1/4"/>
+            </div>
+            <div class="w-full">
+                <label class="form-check-label w-3/4" for="IsUserAccount">Kullanıcı Hesabı</label>
+                <input type="checkbox" asp-for="@Model.IsUserAccount" id="IsUserAccount" class="w-1/4"/>
+            </div>
+        </div>
+        <div class="w-1/4"></div>
+        <input type="hidden" id="id" name="id" value="@Model.Id"/>
+        <div class="w-1/4">
+            <button type="submit" asp-page="/CardTypes" asp-page-handler="Add" asp-route-id="@Model.Id">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
+                </svg>
+            </button>
+            <button type="reset">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+    </form>
+</turbo-frame>

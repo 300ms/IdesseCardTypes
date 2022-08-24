@@ -8,13 +8,13 @@ Turbo.session.drive = true
 
 // Turbo event listeners
 document.addEventListener('turbo:load', function (e) {
-  console.log('turbo:load', e);
+    console.log('turbo:load', e);
 });
 
 document.addEventListener('turbo:visit', function (e) {
-  console.log('turbo:visit', e);
+    console.log('turbo:visit', e);
 });
 
 document.addEventListener('turbo:frame-load', function (e) {
-  console.log('turbo:frame-load', e);
+    console.log('turbo:frame-load', e);
 });
