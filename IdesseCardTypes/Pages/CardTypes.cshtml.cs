@@ -60,7 +60,6 @@ public class CardTypesModel : PageModel
     public PartialViewResult OnPostAdd(int id, string definition, bool isVisitable, bool isLocationRequired,
         bool isUserAccount)
     {
-        Console.WriteLine(id);
         if (id == 0)
         {
             id = CardTypes.Instance.LastOrDefault().Id + 1;
@@ -80,8 +79,8 @@ public class CardTypesModel : PageModel
             return Partial("_CardTypeEdit", ct);
         }
     }
-    
-    public PartialViewResult OnGetEdit(int id, string definition, bool isVisitable, bool isLocationRequired, 
+
+    public PartialViewResult OnGetEdit(int id, string definition, bool isVisitable, bool isLocationRequired,
         bool isUserAccount)
     {
         CardType ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
@@ -103,7 +102,7 @@ public class CardTypesModel : PageModel
     {
         CardType ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
         CardTypes.Instance.Remove(ct);
-        
+
         Response.ContentType = "text/vnd.turbo-stream.html";
         return Partial("_CardTypeDelete", ct);
     }
