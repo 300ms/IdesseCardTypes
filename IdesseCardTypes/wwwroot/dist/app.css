@@ -807,6 +807,18 @@ main {
   height: 100vh;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
+.h-7 {
+  height: 1.75rem;
+}
+
+.h-9 {
+  height: 2.25rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -831,6 +843,50 @@ main {
   width: 100vw;
 }
 
+.w-5\/12 {
+  width: 41.666667%;
+}
+
+.w-1\/6 {
+  width: 16.666667%;
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
+.w-fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.w-2\/4 {
+  width: 50%;
+}
+
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.w-7 {
+  width: 1.75rem;
+}
+
+.w-9 {
+  width: 2.25rem;
+}
+
+.w-10 {
+  width: 2.5rem;
+}
+
 .max-w-\[75\%\] {
   max-width: 75%;
 }
@@ -845,6 +901,10 @@ main {
 
 .max-w-none {
   max-width: none;
+}
+
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .flex-col {
@@ -994,27 +1054,47 @@ main {
 
 @media only screen and (max-width: 500px){
         svg {
+            max-width: 16px;
+            max-height: 16px;
+        }
+
+        body {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+    }
+
+@media only screen and (min-width: 500px) and (max-width: 1024px){
+        svg {
             max-width: 20px;
             max-height: 20px;
         }
 
         body {
-            font-size: 12px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+        main {
+            min-width: 500px;
         }
     }
 
-@media only screen and (min-width: 500px) and (max-width: 1024px){
+@media only screen and (min-width: 1024px) {
         svg {
-            max-width: 22px;
-            max-height: 22px;
+            width: 40px;
+            height: 40px;
+            max-width: 40px;
+            max-height: 40px;
         }
-        
+
         body {
-            font-size: 14px;
-        }
-        
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
         main {
-            min-width: 400px;
+            min-width: 750px;
         }
     }
 
