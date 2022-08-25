@@ -1,13 +1,13 @@
 ﻿@model CardType
 
-<turbo-frame action="replace" target="CardType_0">
+<turbo-stream action="replace" target="CardType_0">
     <template>
         <turbo-frame id="CardType_0"></turbo-frame>
     </template>
-</turbo-frame>
+</turbo-stream>
 
-<turbo-frame action="append" target="card-type-list-frame">
+<turbo-stream action="append" target="card-type-list-frame">
     <template>
         <partial name="_CardTypeView" model="@Model"/>
     </template>
-</turbo-frame>
+</turbo-stream>

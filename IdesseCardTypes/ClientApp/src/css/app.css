@@ -3,3 +3,45 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@layer base {
+    
+}
+
+@layer components {
+    main {
+        min-width: 350px;
+    }
+}
+
+@layer utilities {
+    .menu-header {
+        @apply h-fit text-left font-bold;
+    }
+
+    @media only screen and (max-width: 500px){
+        svg {
+            max-width: 20px;
+            max-height: 20px;
+        }
+
+        body {
+            font-size: 12px;
+        }
+    }
+
+    @media only screen and (min-width: 500px) and (max-width: 1024px){
+        svg {
+            max-width: 22px;
+            max-height: 22px;
+        }
+        
+        body {
+            font-size: 14px;
+        }
+        
+        main {
+            min-width: 400px;
+        }
+    }
+}

@@ -720,6 +720,10 @@ select {
   }
 }
 
+main {
+        min-width: 350px;
+    }
+
 .m-auto {
   margin: auto;
 }
@@ -743,6 +747,15 @@ select {
 
 .mx-2 {
   margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.mr-2 {
   margin-right: 0.5rem;
 }
 
@@ -792,10 +805,6 @@ select {
 
 .w-6 {
   width: 1.5rem;
-}
-
-.w-1\/2 {
-  width: 50%;
 }
 
 .w-3\/4 {
@@ -885,8 +894,8 @@ select {
   padding-bottom: 0.5rem;
 }
 
-.text-left {
-  text-align: left;
+.pl-2 {
+  padding-left: 0.5rem;
 }
 
 .text-center {
@@ -897,6 +906,40 @@ select {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
+.menu-header {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: left;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 500px){
+        svg {
+            max-width: 20px;
+            max-height: 20px;
+        }
+
+        body {
+            font-size: 12px;
+        }
+    }
+
+@media only screen and (min-width: 500px) and (max-width: 1024px){
+        svg {
+            max-width: 22px;
+            max-height: 22px;
+        }
+        
+        body {
+            font-size: 14px;
+        }
+        
+        main {
+            min-width: 400px;
+        }
+    }
 
 @media (min-width: 640px) {
 
