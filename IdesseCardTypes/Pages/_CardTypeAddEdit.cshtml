@@ -1,26 +1,25 @@
 ﻿@model CardType
 
 <turbo-frame id="CardType_@Model.Id">
-    <form method="post" class="new-card-type w-full">
-        <div class="w-3/4">
-            <div class="w-full">
-                <label class="form-check-label w-3/4" for="Definition">Tanım</label>
-                <input type="text" asp-for="@Model.Definition" id="Definition" class="w-1/4"/>
+    <form method="post" class="flex w-full py-2">
+        <div class="w-3/4 flex-col justify-items-start">
+            <div>
+                @* <label class="form-check-label w-3/4" for="Definition">Tanım</label> *@
+                <input type="text" asp-for="@Model.Definition" id="Definition" class="w-full" placeholder="Tanım"/>
             </div>
-            <div class="w-full">
+            <div class="mt-2 flex justify-between">
                 <label class="form-check-label w-3/4" for="IsVisitable">Ziyaret Edilebilir</label>
-                <input type="checkbox" asp-for="@Model.IsVisitable" id="IsVisitable" class=""/>
+                <input type="checkbox" asp-for="@Model.IsVisitable" id="IsVisitable" class="checkbox"/>
             </div>
-            <div class="w-full">
+            <div class="mt-2 flex justify-between">
                 <label class="form-check-label w-3/4" for="IsLocationRequired">Lokasyon Gerekli</label>
-                <input type="checkbox" asp-for="@Model.IsLocationRequired" id="IsLocationRequired" class=""/>
+                <input type="checkbox" asp-for="@Model.IsLocationRequired" id="IsLocationRequired" class="checkbox"/>
             </div>
-            <div class="w-full">
+            <div class="mt-2 flex justify-between">
                 <label class="form-check-label w-3/4" for="IsUserAccount">Kullanıcı Hesabı</label>
-                <input type="checkbox" asp-for="@Model.IsUserAccount" id="IsUserAccount" class=""/>
+                <input type="checkbox" asp-for="@Model.IsUserAccount" id="IsUserAccount" class="checkbox"/>
             </div>
         </div>
-        <div class="w-1/4"></div>
         <input type="hidden" id="id" name="id" value="@Model.Id"/>
         <div class="w-1/4">
             <button type="submit" asp-page="/CardTypes" asp-page-handler="Add" asp-route-id="@Model.Id">
