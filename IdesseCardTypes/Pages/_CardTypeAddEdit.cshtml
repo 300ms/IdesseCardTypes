@@ -20,8 +20,8 @@
             </div>
         </div>
         <input type="hidden" id="id" name="id" value="@Model.Id"/>
-        <div class="w-1/4">
-            <button type="submit" asp-page="/CardTypes" asp-page-handler="Add" asp-route-id="@Model.Id">
+        <div class="w-1/4 flex justify-end items-start">
+            <button type="submit" asp-page="/CardTypes" asp-page-handler="Add" asp-route-id="@Model.Id" class="mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="h-6 w-6" viewBox="0 0 500 500" xml:space="preserve">
                     <defs>
                     </defs>
@@ -52,7 +52,7 @@
                     </g>
                 </svg>
             </button>
-            <a class="inline-block" asp-page="/CardTypes">
+            <a class="inline-block mr-2" asp-page="/CardTypes">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="h-6 w-6" viewBox="0 0 500 500" xml:space="preserve">
                                         <defs>
                                         </defs>

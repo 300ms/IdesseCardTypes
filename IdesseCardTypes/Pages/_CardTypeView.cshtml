@@ -2,11 +2,11 @@
 
 <turbo-frame id="CardType_@Model.Id">
     <div class="card-type-item w-full my-3 py-2 border-solid border-grey border-2 flex justify-between items-center">
-        <div class="flex no-wrap items-center pl-2 w-fit justify-between">
+        <div class="flex no-wrap items-center pl-2 w-1/3 justify-start">
             <span class="h-fit">@Model.Definition</span>
         </div>
 
-        <div class="flex no-wrap items-center justify-between w-fit">
+        <div class="flex no-wrap items-center justify-center w-1/3">
             @if (Model.IsVisitable)
             {
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="h-6 w-6 inline-block mx-1" viewBox="0 0 500 500" xml:space="preserve">
@@ -30,7 +30,7 @@
             @* <input type="checkbox" asp-for="@Model.IsVisitable" disabled class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mx-2"> *@
         </div>
         
-        <div class="flex h-fit no-wrap w-fit">
+        <div class="flex h-fit no-wrap w-1/3 justify-end">
             <a class="flex h-max items-start" asp-page="/CardTypes" asp-page-handler="Edit" asp-route-id="@Model.Id">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="h-6 w-6 inline-block mx-2" viewBox="0 0 500 500" xml:space="preserve">
                 <desc>Created with Fabric.js 4.6.0</desc>

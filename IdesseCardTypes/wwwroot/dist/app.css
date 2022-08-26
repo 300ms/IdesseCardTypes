@@ -894,6 +894,14 @@ main {
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -904,6 +912,10 @@ main {
 
 .justify-items-start {
   justify-items: start;
+}
+
+.justify-items-end {
+  justify-items: end;
 }
 
 .justify-items-center {
