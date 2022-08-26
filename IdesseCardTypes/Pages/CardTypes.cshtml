@@ -45,13 +45,26 @@
 
         <turbo-frame id="CardType_0"></turbo-frame>
 
-        <ul class="menu-list w-full">
-            <turbo-frame id="card-type-list-frame">
+        <div class="grid grid-flow-row auto-rows-max w-full">
+            <div class="card-type-item w-full my-3 py-2 border-solid border-2 flex justify-between items-center">
+                    <div class="flex no-wrap items-center pl-2 w-fit justify-between w-1/3">
+                        <h6 class="m-auto font-semibold">Tanım</h6>
+                    </div>
+            
+                    <div class="flex no-wrap items-center justify-between w-1/3">
+                        <h6 class="m-auto font-semibold">Ziyaret Edilebilir</h6>
+                    </div>
+                    
+                <div class="flex h-fit no-wrap w-1/3">
+                    <h6 class="m-auto font-semibold">Düzenle / Sil</h6>
+                </div>
+                </div>
+            <turbo-frame id="card-type-list-frame" class="even:bg-grey">
                 @foreach (CardType cardType in CardTypes.Instance)
                 {
                     <partial name="_CardTypeView" model="@cardType"></partial>
                 }
             </turbo-frame>
-        </ul>
+        </div>
     </div>
 </turbo-frame>

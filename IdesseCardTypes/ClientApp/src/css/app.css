@@ -34,7 +34,7 @@
         }
 
         body {
-            @apply text-sm leading-5;
+            @apply text-xs leading-5;
         }
     }
 

@@ -1,13 +1,12 @@
 ﻿@model CardType
 
 <turbo-frame id="CardType_@Model.Id">
-    <li class="card-type-item w-full my-3 py-2 border-solid border-top-grey border-2 flex justify-between items-center">
+    <div class="card-type-item w-full my-3 py-2 border-solid border-grey border-2 flex justify-between items-center">
         <div class="flex no-wrap items-center pl-2 w-fit justify-between">
             <span class="h-fit">@Model.Definition</span>
         </div>
 
         <div class="flex no-wrap items-center justify-between w-fit">
-            <span class="h-fit">Ziyaret Edilebilir</span>
             @if (Model.IsVisitable)
             {
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="h-6 w-6 inline-block mx-1" viewBox="0 0 500 500" xml:space="preserve">
@@ -62,5 +61,5 @@
                 </button>
             </form>
         </div>
-    </li>
+    </div>
 </turbo-frame>
