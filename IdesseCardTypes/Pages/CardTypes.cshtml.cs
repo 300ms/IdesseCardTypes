@@ -60,23 +60,40 @@ public class CardTypesModel : PageModel
     public PartialViewResult OnPostAdd(int id, string definition, bool isVisitable, bool isLocationRequired,
         bool isUserAccount)
     {
-        if (id == 0)
+        var check = CardTypes.Instance.Where(x => x.Id != id && x.Definition == definition).FirstOrDefault();
+        if (check == null && !String.IsNullOrEmpty(definition))
         {
-            id = CardTypes.Instance.LastOrDefault().Id + 1;
-            CardType ct = new CardType(id, definition, isVisitable, isLocationRequired, isUserAccount);
-            CardTypes.Instance.Add(ct);
-            Response.ContentType = "text/vnd.turbo-stream.html";
-            return Partial("_CardTypeAdd", ct);
+            if (id == 0)
+            {
+                id = CardTypes.Instance.LastOrDefault().Id + 1;
+                CardType ct = new CardType(id, definition, isVisitable, isLocationRequired, isUserAccount);
+                CardTypes.Instance.Add(ct);
+                Response.ContentType = "text/vnd.turbo-stream.html";
+                return Partial("_CardTypeAdd", ct);
+            }
+            else
+            {
+                CardType ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
+                ct.Definition = definition;
+                ct.IsVisitable = isVisitable;
+                ct.IsLocationRequired = isLocationRequired;
+                ct.IsUserAccount = isUserAccount;
+                Response.ContentType = "text/vnd.turbo-stream.html";
+                return Partial("_CardTypeEdit", ct);
+            }
         }
         else
         {
-            CardType ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
-            ct.Definition = definition;
-            ct.IsVisitable = isVisitable;
-            ct.IsLocationRequired = isLocationRequired;
-            ct.IsUserAccount = isUserAccount;
-            Response.ContentType = "text/vnd.turbo-stream.html";
-            return Partial("_CardTypeEdit", ct);
+            if (check != null)
+            {
+                CardType ct = new CardType(0, string.Empty, false, false, false);
+                return Partial("_DefinitionAlreadyExists", ct);
+            }
+            else
+            {
+                CardType ct = new CardType(0, string.Empty, false, false, false);
+                return Partial("_DefinitionEmpty", ct);
+            }
         }
     }
 
