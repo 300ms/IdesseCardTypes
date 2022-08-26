@@ -37,7 +37,7 @@ public class CardTypes : List<CardType>
             {
                 _Instance = new CardTypes();
 
-                for (var i = 0; i < 2; i++) _Instance.Add(new CardType(i + 1, $"Taným {i + 1}", true, true, false));
+                for (var i = 0; i < 80; i++) _Instance.Add(new CardType(i + 1, $"Taným {i + 1}", true, true, false));
             }
 
             return _Instance;

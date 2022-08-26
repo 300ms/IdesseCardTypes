@@ -12,6 +12,21 @@
     main {
         min-width: 350px;
     }
+
+    .card-type-list-view::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .card-type-list-view::-webkit-scrollbar-track {
+        background: #E5E7EB;
+        border-radius: 20px;
+        height: 5px;
+    }
+
+    .card-type-list-view::-webkit-scrollbar-thumb {
+        background-color: #0071BC;
+        border-radius: 20px;
+    }
 }
 
 @layer utilities {

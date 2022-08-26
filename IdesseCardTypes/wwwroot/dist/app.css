@@ -724,6 +724,21 @@ main {
         min-width: 350px;
     }
 
+.card-type-list-view::-webkit-scrollbar {
+        width: 10px;
+    }
+
+.card-type-list-view::-webkit-scrollbar-track {
+        background: #E5E7EB;
+        border-radius: 20px;
+        height: 5px;
+    }
+
+.card-type-list-view::-webkit-scrollbar-thumb {
+        background-color: #0071BC;
+        border-radius: 20px;
+    }
+
 .m-auto {
   margin: auto;
 }
@@ -813,6 +828,10 @@ main {
 
 .h-screen {
   height: 100vh;
+}
+
+.max-h-96 {
+  max-height: 24rem;
 }
 
 .w-full {
@@ -916,6 +935,10 @@ main {
 
 .justify-items-center {
   justify-items: center;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .rounded-lg {
