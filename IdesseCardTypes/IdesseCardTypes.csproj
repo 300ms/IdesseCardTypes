@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="ClientApp\src\images\" />
-        <Folder Include="wwwroot\" />
+        <Folder Include="ClientApp\src\images\"/>
+        <Folder Include="wwwroot\"/>
     </ItemGroup>
 
 </Project>
