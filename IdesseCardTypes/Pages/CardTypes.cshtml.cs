@@ -87,6 +87,10 @@ public class CardTypesModel : PageModel
             if (check != null)
             {
                 CardType ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
+                if (ct is null)
+                {
+                    ct = new CardType(0, string.Empty, false, false, false);
+                }
                 return Partial("_DefinitionAlreadyExists", ct);
             }
             else
