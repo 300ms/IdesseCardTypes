@@ -13,14 +13,31 @@
         min-width: 350px;
     }
 
+    .menu-header {
+        @apply h-fit text-left text-black font-bold;
+    }
+    
+    .table-headers {
+        @apply text-black;
+    }
+
+    .checkbox {
+        @apply w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mx-2;
+    }
+    
+    .form-check-label {
+        @apply text-left;
+    }
+
     .card-type-list-view::-webkit-scrollbar {
-        width: 10px;
+        width: 8px;
+        left: 10px
     }
 
     .card-type-list-view::-webkit-scrollbar-track {
         background: #E5E7EB;
-        border-radius: 20px;
-        height: 5px;
+        border-radius: 20px;;
+        border: transparent solid 2px;
     }
 
     .card-type-list-view::-webkit-scrollbar-thumb {
@@ -30,22 +47,10 @@
 }
 
 @layer utilities {
-    .menu-header {
-        @apply h-fit text-left font-bold;
-    }
-
-    .form-check-label {
-        @apply text-left;
-    }
-
     input {
         @apply drop-shadow-2xl;
     }
-
-    .checkbox {
-        @apply w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mx-2;
-    }
-
+    
     svg {
         @apply hover:w-7 hover:h-7 drop-shadow-xl;
     }

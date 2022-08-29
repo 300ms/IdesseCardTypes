@@ -24,7 +24,7 @@
         <turbo-frame id="CardType_0"></turbo-frame>
 
         <div class="grid grid-flow-row auto-rows-max w-full max-h-96 overflow-y-auto card-type-list-view">
-            <div class="card-type-item w-full my-3 py-2 border-solid border-2 flex justify-between items-center">
+            <div class="card-type-item w-full my-3 py-2 border-solid border-2 flex justify-between items-center table-headers">
                 <div class="flex no-wrap items-center pl-2 w-fit justify-between w-1/3">
                     <h6 class="m-auto font-semibold">Tanım</h6>
                 </div>
@@ -38,10 +38,17 @@
                 </div>
             </div>
             <turbo-frame id="card-type-list-frame">
-                @foreach (CardType cardType in CardTypes.Instance)
+                
+                @for (int i = 0; i < CardTypes.Instance.Count; i++)
                 {
-                    <partial name="_CardTypeView" model="@cardType"></partial>
+                    ViewData["className"] = i%2 ==0 ? "active": ""; 
+                    <partial name="_CardTypeView" model="@CardTypes.Instance[i]" view-data="ViewData"></partial>
                 }
+                
+                @* @foreach (CardType cardType in CardTypes.Instance) *@
+                @* { *@
+                @*     <partial name="_CardTypeView" model="@cardType"></partial> *@
+                @* } *@
             </turbo-frame>
         </div>
     </div>
