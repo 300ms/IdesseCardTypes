@@ -13,6 +13,10 @@
         min-width: 350px;
     }
 
+    .card-type-item {
+        @apply hover:bg-cyan-200;
+    }
+    
     .menu-header {
         @apply h-fit text-left text-black font-bold;
     }
