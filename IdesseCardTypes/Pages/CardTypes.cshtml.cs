@@ -95,7 +95,11 @@ public class CardTypesModel : PageModel
             }
             else
             {
-                CardType ct = new CardType(0, string.Empty, false, false, false);
+                CardType ct = CardTypes.Instance.Where(x => x.Id == id).FirstOrDefault();
+                if (ct is null)
+                {
+                    ct = new CardType(0, string.Empty, false, false, false);
+                }
                 return Partial("_DefinitionEmpty", ct);
             }
         }

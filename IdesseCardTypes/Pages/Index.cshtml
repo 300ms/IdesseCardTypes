@@ -12,15 +12,15 @@
 
         <div class="login-form w-full flex-col justify-content-between">
             <form method="post" id="login-form">
-                <div class="user-name-input m-8">
-                    <label for="user-name">Username</label><br/>
-                    <input asp-for="@Model.UserName" id="user-name"/>
-                </div>
+                <label class="p-8 input-group w-full">
+                    <span for="user-name">Username</span><br/>
+                    <input asp-for="@Model.UserName" class="input input-bordered input-info w-full" id="user-name"/>
+                </label>
 
-                <div class="password-input m-8">
-                    <label for="password">Password</label><br/>
-                    <input asp-for="@Model.Password" id="password"/>
-                </div>
+                <label class="p-8 input-group w-full">
+                    <span for="password">Password</span><br/>
+                    <input asp-for="@Model.Password" class="input input-bordered input-info w-full" type="password" id="password"/>
+                </label>
 
                 <button type="submit" asp-page="/Index" class="btn btn-outline btn-info">Login</button>
             </form>

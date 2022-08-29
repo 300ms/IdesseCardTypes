@@ -13,12 +13,12 @@
             <form method="post" id="login-form">
                 <div class="user-name-input m-8">
                     <label for="user-name">UserName</label><br/>
-                    <input asp-for="@Model.UserName" id="user-name"/>
+                    <input asp-for="@Model.UserName" class="input input-bordered input-info w-full" id="user-name"/>
                 </div>
 
                 <div class="password-input m-8">
                     <label for="password">Password</label><br/>
-                    <input asp-for="@Model.Password" id="password"/>
+                    <input asp-for="@Model.Password" class="input input-bordered input-info w-full" id="password"/>
                 </div>
 
                 <button type="submit">Login</button>
