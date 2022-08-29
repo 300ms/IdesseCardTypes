@@ -38,18 +38,18 @@
                 </div>
             </div>
             <turbo-frame id="card-type-list-frame">
-                
+
                 @for (int i = 0; i < CardTypes.Instance.Count; i++)
                 {
-                    ViewData["className"] = i%2 ==0 ? "bg-gray-200": ""; 
+                    ViewData["className"] = i % 2 == 0 ? "bg-gray-200" : "";
                     <partial name="_CardTypeView" model="@CardTypes.Instance[i]" view-data="ViewData"></partial>
                 }
-                
-                @* @foreach (CardType cardType in CardTypes.Instance) *@
-                @* { *@
-                @*     <partial name="_CardTypeView" model="@cardType"></partial> *@
-                @* } *@
             </turbo-frame>
         </div>
+
+        <turbo-frame id="card-type-list-counter">
+            @{ CardType ct = new CardType(0, "", false, false, false); }
+            <partial name="_CardTypeListCounter" model="ct"></partial>
+        </turbo-frame>
     </div>
 </turbo-frame>
