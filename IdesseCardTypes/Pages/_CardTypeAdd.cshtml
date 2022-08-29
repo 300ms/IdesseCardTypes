@@ -1,8 +1,8 @@
 ﻿@model CardType
 
-<turbo-stream action="replace" target="CardType_0">
+<turbo-stream action="replace" target="CardType_@Model.Id">
     <template>
-        <turbo-frame id="CardType_0"></turbo-frame>
+        <turbo-frame id="CardType_@Model.Id"></turbo-frame>
     </template>
 </turbo-stream>
 
