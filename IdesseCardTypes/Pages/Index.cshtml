@@ -6,23 +6,23 @@
 
 <turbo-frame id="content-frame" data-turbo-action="advance">
     <div class="text-center border-solid border-2 border-grey rounded-lg p-8">
-        <div class="idesse-logo flex items-center m-auto">
+        <div class="idesse-logo flex items-center mx-auto mb-8">
             <img src="~/dist/images/idesse_logo.svg" class="max-w-sm m-auto"/>
         </div>
 
-        <div class="login-form w-full flex-col justify-content-between">
-            <form method="post" id="login-form">
-                <label class="p-8 input-group w-full">
-                    <span for="user-name">Username</span><br/>
-                    <input asp-for="@Model.UserName" class="input input-bordered input-info w-full" id="user-name"/>
+        <div class="login-form w-full flex flex-col items-center">
+            <form method="post" id="login-form" class="flex flex-col items-center max-w-[80%] w-full">
+                <label class="p-4 input-group w-full flex justify-center">
+                    <span for="user-name" class="h-10 bg-gray-200 w-44 py-2">Kullanıcı Adı</span><br/>
+                    <input asp-for="@Model.UserName" class="input input-bordered input-info w-full max-w-[60%] h-10" id="user-name"/>
                 </label>
 
-                <label class="p-8 input-group w-full">
-                    <span for="password">Password</span><br/>
-                    <input asp-for="@Model.Password" class="input input-bordered input-info w-full" type="password" id="password"/>
+                <label class="p-4 input-group w-full flex justify-center">
+                    <span for="password" class="h-10 bg-gray-200 w-44 py-2">Şifre</span><br/>
+                    <input asp-for="@Model.Password" class="input input-bordered input-info w-full max-w-[60%] h-10" type="password" id="password"/>
                 </label>
 
-                <button type="submit" asp-page="/Index" class="btn btn-outline btn-info">Login</button>
+                <button type="submit" asp-page="/Index" class="btn btn-outline btn-info mt-8">GİRİŞ</button>
             </form>
         </div>
     </div>

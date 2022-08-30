@@ -3,10 +3,10 @@
 
 <turbo-frame id="content-frame">
     <div class="text-center border-solid border-2 border-grey rounded-lg p-8 w-full flex-col h-fit">
-        <div class="menu-header w-full flex items-center justify-between m-auto border-solid border-2 border-black">
+        <div class="menu-header w-full flex items-center justify-between m-auto border-solid border-b-2 border-mainTitleBlue">
             <div class="max-w-[75%] flex items-center">
                 <img src="dist/images/idesse-symbol.svg" class="m-2 h-9 w-9"/>
-                <span class="menu-header">Kart Tipleri</span>
+                <span class="menu-header text-mainTitleBlue">Kart Tipleri</span>
             </div>
             <a class="flex h-max max-w-[25%]" asp-page="/CardTypes" asp-page-handler="Add" data-turbo-frame="CardType_0">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="h-6 w-6 m-2" viewBox="0 0 500 500" xml:space="preserve">
@@ -21,26 +21,25 @@
 
         <turbo-frame id="CardType_0"></turbo-frame>
 
-        <div class="grid grid-flow-row auto-rows-max w-full max-h-96 overflow-y-auto card-type-list-view">
-            <div class="w-full my-3 py-2 border-solid border-2 flex justify-between items-center table-headers">
-                <div class="flex no-wrap items-center pl-2 w-fit justify-between w-1/3">
-                    <h6 class="m-auto font-semibold">Tanım</h6>
+        <div class="grid grid-flow-row auto-rows-max w-full max-h-96 overflow-y-auto card-type-list-view pr-3">
+            <div class="w-full my-3 py-2 flex justify-between items-center table-headers">
+                <div class="flex no-wrap items-center pl-2 w-fit justify-start w-1/3">
+                    <h6 class="font-semibold inline-block border-solid border-b-2 border-gray-400 text-gray-400">Tanım</h6>
                 </div>
 
-                <div class="flex no-wrap items-center justify-between w-1/3">
-                    <h6 class="m-auto font-semibold">Ziyaret Edilebilir</h6>
+                <div class="flex no-wrap items-center w-1/3">
+                    <h6 class="font-semibold m-auto border-solid border-b-2 border-gray-400 text-gray-400">Ziyaret Edilebilir</h6>
                 </div>
 
-                <div class="flex h-fit no-wrap w-1/3">
-                    <h6 class="m-auto font-semibold">Düzenle / Sil</h6>
+                <div class="flex h-fit no-wrap w-1/3 justify-end">
+                    <h6 class="font-semibold inline-block border-solid border-b-2 border-gray-400 text-gray-400">Düzenle / Sil</h6>
                 </div>
             </div>
             <turbo-frame id="card-type-list-frame">
 
                 @for (int i = 0; i < CardTypes.Instance.Count; i++)
                 {
-                    ViewData["className"] = i % 2 == 0 ? "bg-gray-200" : "";
-                    <partial name="_CardTypeView" model="@CardTypes.Instance[i]" view-data="ViewData"></partial>
+                    <partial name="_CardTypeView" model="@CardTypes.Instance[i]"></partial>
                 }
             </turbo-frame>
         </div>

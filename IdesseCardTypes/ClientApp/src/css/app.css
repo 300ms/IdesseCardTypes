@@ -14,7 +14,7 @@
     }
 
     .card-type-item {
-        @apply hover:bg-cyan-200;
+        @apply hover:bg-gray-200;
     }
     
     .menu-header {
@@ -26,7 +26,7 @@
     }
 
     .checkbox {
-        @apply w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mx-2;
+        @apply w-4 h-4 checkbox-accent;
     }
     
     .form-check-label {
@@ -34,14 +34,13 @@
     }
 
     .card-type-list-view::-webkit-scrollbar {
-        width: 8px;
-        left: 10px
+        width: 4px;
     }
 
     .card-type-list-view::-webkit-scrollbar-track {
         background: #E5E7EB;
         border-radius: 20px;;
-        border: transparent solid 2px;
+        border: transparent solid 1px;
     }
 
     .card-type-list-view::-webkit-scrollbar-thumb {
@@ -52,7 +51,7 @@
 
 @layer utilities {
     input {
-        @apply drop-shadow-2xl;
+        @apply drop-shadow-md;
     }
     
     svg {

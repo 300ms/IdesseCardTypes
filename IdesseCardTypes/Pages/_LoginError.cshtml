@@ -1,8 +1,8 @@
 ﻿@model IndexModel
 
-<turbo-frame id="content-frame">
+<turbo-frame id="content-frame" data-turbo-action="advance">
     <div class="text-center border-solid border-2 border-grey rounded-lg p-8">
-        <div class="idesse-logo flex align-center m-auto">
+        <div class="idesse-logo flex items-center m-auto">
             <img src="~/dist/images/idesse_logo.svg" class="max-w-sm m-auto"/>
         </div>
 
@@ -11,17 +11,17 @@
                 <span class="text-white h-fit">Please Enter a User Name!</span>
             </div>
             <form method="post" id="login-form">
-                <div class="user-name-input m-8">
-                    <label for="user-name">UserName</label><br/>
-                    <input asp-for="@Model.UserName" class="input input-bordered input-info w-full" id="user-name"/>
-                </div>
+                <label class="p-8 input-group w-full">
+                    <span for="user-name">Username</span><br/>
+                    <input asp-for="@Model.UserName" class="input input-bordered input-info w-full max-w-[60%]" id="user-name"/>
+                </label>
 
-                <div class="password-input m-8">
-                    <label for="password">Password</label><br/>
-                    <input asp-for="@Model.Password" class="input input-bordered input-info w-full" id="password"/>
-                </div>
+                <label class="p-8 input-group w-full">
+                    <span for="password">Password</span><br/>
+                    <input asp-for="@Model.Password" class="input input-bordered input-info w-full max-w-[60%]" type="password" id="password"/>
+                </label>
 
-                <button type="submit">Login</button>
+                <button type="submit" asp-page="/Index" class="btn btn-outline btn-info">Login</button>
             </form>
         </div>
     </div>
