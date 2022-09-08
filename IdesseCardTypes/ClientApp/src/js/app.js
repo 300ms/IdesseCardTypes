@@ -1,4 +1,5 @@
 ﻿import '../css/app.css';
+import './signalRTurboStreamElement'
 
 import * as Turbo from '@hotwired/turbo'
 

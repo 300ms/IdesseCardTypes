@@ -1,4 +1,5 @@
 ﻿@page
+@using IdesseCardTypes.Hubs
 @model CardTypesModel
 
 <turbo-frame id="content-frame">
@@ -37,14 +38,19 @@
             </div>
             <turbo-frame id="card-type-list-frame">
 
-                @for (int i = 0; i < CardTypes.Instance.Count; i++)
+                @* @for (int i = 0; i < CardTypes.Instance.Count; i++) *@
+                @* { *@
+	               @*  <partial name="_CardTypeView" model="@CardTypes.Instance[i]"></partial> *@
+                @* } *@
+                @foreach (var type in @CardTypes.Instance)
                 {
-                    <partial name="_CardTypeView" model="@CardTypes.Instance[i]"></partial>
+                    <partial name="_CardTypeView" model="@type"></partial>
                 }
             </turbo-frame>
+	        <signalr-turbo-stream hub=@($"/{nameof(AppHub)}") method="CardTypeListChanged"></signalr-turbo-stream>
         </div>
 
-        <turbo-frame id="card-type-list-counter">
+	    <turbo-frame id="card-type-list-counter">
             @{ CardType ct = new CardType(0, "", false, false, false); }
             <partial name="_CardTypeListCounter" model="ct"></partial>
         </turbo-frame>

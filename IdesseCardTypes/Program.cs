@@ -1,4 +1,14 @@
+using IdesseCardTypes.Hubs;
+using IdesseCardTypes.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Register RazorPartialToStringRenderer service for DI
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<IRazorPartialToStringRenderer, RazorPartialToStringRenderer>();
+  
+// Add SignalR for DI
+builder.Services.AddSignalR();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -21,5 +31,8 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+// Configure SignalR endpoints
+app.MapHub<AppHub>("/appHub");
 
 app.Run();

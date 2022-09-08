@@ -8,12 +8,12 @@
 
 <turbo-stream action="append" target="card-type-list-frame">
     <template>
-        <partial name="_CardTypeView" model="@Model"/>
+        <partial name="_CardTypeView.cshtml" model="@Model"/>
     </template>
 </turbo-stream>
 
 <turbo-stream action="replace" target="card-type-list-counter">
     <template>
-        <partial name="_CardTypeListCounter" model="@Model"/>
+        <partial name="_CardTypeListCounter.cshtml" model="@Model"/>
     </template>
 </turbo-stream>
